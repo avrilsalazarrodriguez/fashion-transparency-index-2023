@@ -54,6 +54,12 @@ El análisis estudia **divulgación pública de información**. Por lo tanto, un
 
 ---
 
+## Fuente y atribución de los datos
+
+Los datos utilizados en este proyecto provienen de WikiRate y corresponden al Fashion Transparency Index 2023 de Fashion Revolution. Las exportaciones originales conservadas en `raw/`mantienen la atribución indicada por WikiRate y su referencia a la licencia CC BY 4.0.
+
+---
+
 ## Flujo del análisis
 
 ![Estrategia general de solución](docs/estrategia_general_solucion.png)
@@ -153,7 +159,7 @@ La solución final seleccionada fue **K-Means con tres clusters**, que permite d
 | Divulgación intermedia | 107 | 27.65% |
 | Mayor divulgación | 52 | 55.93% |
 
-La selección de esta solución no se realizó únicamente a partir del coeficiente de Silhouette. También se consideraron la estabilidad del agrupamiento, el tamaño de los grupos y su utilidad para conservar un perfil intermedio que la solución jerárquica resume dentro de dos grupos más amplios.
+Aunque **k = 2** presentó el coeficiente de Silhouette más alto dentro de K-Means **(0.251)**, se seleccionó **k = 3 (0.190)** porque permitió distinguir tres perfiles de **muy baja divulgación, divulgación intermedia y mayor divulgación**, en lugar de resumir la muestra únicamente en dos grupos amplios. Además, esta solución presentó una alta estabilidad ante diferentes inicializaciones, con valores de ARI entre **0.973 y 1.000** y una reproducción exacta de la agrupación en **8 de las 10 semillas evaluadas**. La comparación con el clustering jerárquico mostró una estructura general consistente, aunque este último resume la muestra en dos perfiles más amplios.
 
 Los resultados muestran además que pertenecer al perfil de mayor divulgación **no significa publicar toda la información evaluada**. Incluso dentro de este grupo permanecen vacíos importantes en determinados indicadores.
 
@@ -202,6 +208,12 @@ source .venv/bin/activate
 
 ```bash
 pip install -r requirements.txt
+```
+
+Para regenerar las exportaciones estáticas en formato PNG de las visualizaciones creadas con Plotly, **Kaleido 1.x requiere una instalación compatible de Chrome o Chromium**. Si no se encuentra disponible en el sistema, Plotly permite instalar Chrome mediante:
+
+```bash
+plotly_get_chrome
 ```
 
 ### 4. Configurar la ruta del proyecto
@@ -264,13 +276,13 @@ En particular:
 
 ## Referencias principales
 
-- Fashion Revolution. (2023). *Fashion Transparency Index 2023*.
-- WikiRate. (2023). *Fashion Transparency Index 2023 dataset*.
-- MacQueen, J. (1967). *Some methods for classification and analysis of multivariate observations*.
-- Murtagh, F., & Contreras, P. (2012). *Algorithms for hierarchical clustering: an overview*.
-- Romano, S., Vinh, N. X., Bailey, J., & Verspoor, K. (2016). *Adjusting for chance clustering comparison measures*.
-- Rousseeuw, P. J. (1987). *Silhouettes: A graphical aid to the interpretation and validation of cluster analysis*.
-- Schubert, E. (2023). *Stop using the elbow criterion for k-means and how to choose the number of clusters instead*.
+- Fashion Revolution. (2023). *Fashion Transparency Index 2023*. https://www.fashionrevolution.org/fashion-transparency-index-2023/
+- WikiRate. (2023). *Fashion Transparency Index 2023 (full dataset)*. https://wikirate.org/Fashion_Transparency_Index_2023_full_dataset
+- MacQueen, J. (1967). *Some methods for classification and analysis of multivariate observations*. https://digicoll.lib.berkeley.edu/record/113015/files/math_s5_v1_article-17.pdf
+- Murtagh, F., & Contreras, P. (2012). *Algorithms for hierarchical clustering: An overview*. https://doi.org/10.1002/widm.53
+- Romano, S., Vinh, N. X., Bailey, J., & Verspoor, K. (2016). *Adjusting for chance clustering comparison measures*. https://www.jmlr.org/papers/v17/15-627.html
+- Rousseeuw, P. J. (1987). *Silhouettes: A graphical aid to the interpretation and validation of cluster analysis*. https://doi.org/10.1016/0377-0427(87)90125-7
+- Schubert, E. (2023). *Stop using the elbow criterion for k-means and how to choose the number of clusters instead*. https://doi.org/10.1145/3606274.3606278
 
 Las referencias institucionales, regulatorias y metodológicas completas utilizadas durante el análisis se encuentran documentadas dentro de las libretas del proyecto.
 
