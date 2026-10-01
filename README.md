@@ -110,7 +110,8 @@ fashion-transparency-index-2023/
 │   ├── visualizaciones del EDA
 │   ├── visualizaciones de K-Means
 │   ├── visualizaciones del clustering jerárquico
-│   └── diagramas de Sankey en PNG y HTML
+│   ├── diagramas de Sankey en PNG y HTML
+│   └── reporte final de la Estancia de Investigación en PDF
 │
 ├── requirements.txt
 ├── .gitignore
@@ -178,8 +179,9 @@ Los resultados muestran además que pertenecer al perfil de mayor divulgación *
 | `matriz_empresas_clustering.csv` | Matriz utilizada para el agrupamiento |
 | `resultado_kmeans_clusters.csv` | Perfil asignado mediante K-Means |
 | `resultado_jerarquico_clusters.csv` | Perfil asignado mediante clustering jerárquico |
+| `docs/Reporte FINAL - Avril Salazar Rodriguez - Estancia 2026 - Fashion Transparency Index 2023.pdf` | Reporte final de la Estancia de Investigación |
 
-Las visualizaciones generadas durante el análisis se encuentran en `docs/`. Los diagramas de Sankey también se conservan en formato `.html` para mantener su versión interactiva.
+Las visualizaciones generadas durante el análisis y el reporte final de la Estancia de Investigación se encuentran en `docs/`. Los diagramas de Sankey también se conservan en formato `.html` para mantener su versión interactiva.
 
 ---
 
